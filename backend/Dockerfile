@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN pip install Flask
 COPY . .
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["python3", "app.py"]
