@@ -1,17 +1,21 @@
 version: '3.7'
 services:
   frontend:
-    image: chinenye/frontend
+    container_name: frontend
     build: ./frontend
+    image: chinenye/frontend
+    ports:
+    - target: 5000
+    published: 5000
     depends_on:
       - backend
   backend:
-    image: backend
+    container_name: backend
     build: ./backend
-    depends_on:
-      - database
-  database:
-    build: ./database
+    image: chinenye/backend
+    ports:
+    - target: 5001
+    published: 5001
     environment:
       - MYSQL_DATABASE=database
       - TEST_DATABASE_URI=${TEST_DATABASE_URI}
