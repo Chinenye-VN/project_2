@@ -3,11 +3,10 @@ pipeline{
         }
         stages{
             stage('Build Image'){
-                steps{
-                    {
-                            image = docker.build("chinenye/frontend")
-                        }
-                    }
+                steps {
+                    sh "docker-compose build" ~ image = docker.build("chinenye/frontend")
+                    sh "docker-compose up -d    
+                   }
                 }
             }
             stage('Tag & Push Image'){
