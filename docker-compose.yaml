@@ -3,6 +3,8 @@ services:
   frontend:
     image: chinenye/frontend
     build: ./frontend/
+    depends_on:
+      - backend
   backend:
     image: backend
     build: ./backend/
@@ -23,6 +25,4 @@ services:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
-    depends_on:
-      - frontend
-      - backend
+  
