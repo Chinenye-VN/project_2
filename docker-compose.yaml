@@ -2,19 +2,22 @@ version: '3.7'
 services:
   frontend:
     image: chinenye/frontend
-    build: ./frontend/
+    build: ./frontend
     depends_on:
       - backend
   backend:
     image: backend
-    build: ./backend/
+    build: ./backend
     depends_on:
       - database
   database:
     build: ./database
     environment:
+      - MYSQL_DATABASE=database
+      - TEST_DATABASE_URI=${TEST_DATABASE_URI}
       - DATABASE_URI=${DB_URI}
       - SECRET_KEY=$(SECRET_KEY)
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
   nginx:
     image: nginx:latest
     ports:
