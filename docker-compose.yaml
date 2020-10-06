@@ -13,8 +13,8 @@ services:
   database:
     build: ./database
     environment:
-      - DATABASE_URI:
-      - SECRET_KEY:
+      - DATABASE_URI=${DB_URI}
+      - SECRET_KEY=$(SECRET_KEY)
   nginx:
     image: nginx:latest
     ports:
