@@ -33,7 +33,7 @@ pipeline{
                         withPythonEnv('python3') {
                              sh "pip3 install pytest"
                              sh "pytest mytest.py"
-                                sh "pytest mytest.py --cov application"
+                             sh "pytest mytest.py --cov application"
                         }
                    }
                 }
