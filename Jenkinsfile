@@ -2,28 +2,41 @@ pipeline{
         agent any
         }
         stages{
-            stage('Build Image'){
-                steps {
-                    sh "docker-compose build" ~ image = docker.build("chinenye/frontend")
-                    sh "docker-compose up -d    
-                   }
-                }
-            }
-            stage('Tag & Push Image'){
+            stage('SSH into Test VM'){
                 steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                image.push("${env.app_version}")
+                    script{    
+                        sshagent(credentials : ['MyKey.pem']){
+                           sh "echo pwd"
+                           sh "ssh -i 'MyKey.pem' ubuntu@xx.xxx.xx.xx -o StrictHostKeyChecking=no"
+                       
                             }
                         }
                     }
                 }
             }
-            stage('Deploy App'){
+            stage('Clone Repository'){
                 steps{
-                    sh "docker-compose pull && docker-compose up -d"
+                    sh "git clone https://github.com/Chinenye-VN/project_2.git"
+                    sh "cd project_2"    
                 }
             }
-        }
+            stage('Build Image'){
+                steps {
+                    sh "docker-compose build" ~ image = docker.build("chinenye/frontend")"
+                    sh "docker-compose up -d"  
+                   }
+                }
+            }
+            stage('Run Python Test'){
+                steps{
+                    script{    
+                        withPythonEnv('python3') {
+                             sh "pip3 install pytest"
+                             sh "pytest mytest.py"
+                                sh "pytest mytest.py --cov application"
+                        }
+                   }
+                }
+            }
+        
 }
