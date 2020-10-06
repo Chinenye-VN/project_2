@@ -1,9 +1,11 @@
 version: '3.7'
 services:
   frontend:
-    build: ./frontend
+    image: frontend
+    build: ./frontend/
   backend:
-    build: ./backend
+    image: backend
+    build: ./backend/
     depends_on:
       - database
   database:
