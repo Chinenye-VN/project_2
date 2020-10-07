@@ -13,28 +13,14 @@ pipeline{
                     }
                 }
             }
-            stage('Clone Repository'){
+            stage('Clone Repo'){
                 steps{
-                    sh "git clone https://github.com/Chinenye-VN/project_2.git"
-                    sh "cd project_2"    
+                    sh "git clone 'https://github.com/Chinenye-VN/project_2.git' && cd project_2" 
                 }
             }
             stage('Build Image'){
-                steps {
-                    sh "docker-compose build"
-                    sh "docker-compose up -d"  
-                   }
-                }
-            stage('Run Python Test'){
                 steps{
-                    script{    
-                        withPythonEnv('python3') {
-                             sh "pip3 install pytest"
-                             sh "pytest mytest.py"
-                             sh "pytest mytest.py --cov application"
-                        }
-                   }
-                }
-            }
-        
+                    sh "docker-compose up -d --build"  
+                }               
+            }       
 }
