@@ -20,7 +20,7 @@ services:
       - MYSQL_DATABASE=database
       - TEST_DATABASE_URI=${TEST_DATABASE_URI}
       - DATABASE_URI=${DB_URI}
-      - SECRET_KEY=$(SECRET_KEY)
+      - SECRET_KEY=${SECRET_KEY}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
   nginx:
     image: nginx:latest
