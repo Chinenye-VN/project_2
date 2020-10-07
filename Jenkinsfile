@@ -7,7 +7,7 @@ pipeline{
                     script{    
                         sshagent(credentials : ['MyKey.pem']){
                            sh "echo pwd"
-                           sh "ssh -i 'MyKey.pem' ubuntu@xx.xxx.xx.xx -o StrictHostKeyChecking=no"
+                           sh "ssh -i 'MyKey.pem' ubuntu@xx.xxx.xx.xx -o (yes/no/[fingerprint])=yes"
                        
                             }
                         }
@@ -22,11 +22,10 @@ pipeline{
             }
             stage('Build Image'){
                 steps {
-                    sh "docker-compose build" ~ image = docker.build("chinenye/frontend")"
+                    sh "docker-compose build"
                     sh "docker-compose up -d"  
                    }
                 }
-            }
             stage('Run Python Test'){
                 steps{
                     script{    
