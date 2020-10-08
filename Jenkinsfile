@@ -5,9 +5,8 @@ pipeline{
                 steps{
                     script{    
                         sshagent(credentials : ['MyKey.pem']){
-                           sh "echo pwd"
-                           sh "ssh -i 'MyKey.pem' ubuntu@xx.xxx.xx.xx -o (yes/no/[fingerprint])=yes"
-                       
+                           sh "cd .ssh"
+                           sh "ssh -i 'MyKey.pem' ubuntu@172.31.14.11 -o (yes/no/[fingerprint])=yes"
                         }
                     }
                 }
