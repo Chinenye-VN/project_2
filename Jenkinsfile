@@ -1,7 +1,7 @@
 pipeline{
    environment {
     registry = "chinenye/test"
-    registryCredential = ‘docker-hub-credentials’
+    registryCredential = "docker-hub-credentials"
     dockerImage = '' //saves docker image information       
    }     
         agent any
