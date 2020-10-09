@@ -17,7 +17,7 @@ pipeline{
             }
             stage('Clean up'){
                 steps{         
-                    sh "rm -rf ~/project_2"      
+                    sh "rm -rf project_2"      
                 }   
             }
             stage('Clone Repo'){
