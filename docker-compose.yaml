@@ -3,7 +3,7 @@ services:
   frontend:
     container_name: frontend
     build: ./frontend
-    image: chinenye/frontend
+    image: chinenye/test
     ports:
     - target: 5000
     published: 5000
