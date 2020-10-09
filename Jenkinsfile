@@ -41,7 +41,7 @@ EOF
            stage('Building image') {
                steps{
                    script{
-                     image = docker.build("chinenye/test")
+                     image = docker.build registry
                    }
                }
            }
