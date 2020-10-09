@@ -1,8 +1,7 @@
 pipeline{
    environment {
     registry = "chinenye/test"
-    registryCredential = "docker-hub-credentials"
-    dockerImage = '' //saves docker image information       
+    registryCredential = "docker-hub-credentials"       
    }     
         agent any
         stages{
@@ -42,15 +41,15 @@ EOF
            stage('Building image') {
                steps{
                    script{
-                     dockerImage = docker.build("chinenye/test")
+                     image = docker.build("chinenye/test")
                    }
                }
            }
            stage('Push Image'){
                steps{
                    script {
-                     docker.withRegistry( '', registryCredential ) {
-                       dockerImage.push()
+                     docker.withRegistry(registryCredential) {
+                       image.push()
                      }  
                    }
                }
