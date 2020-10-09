@@ -4,10 +4,11 @@ pipeline{
             stage('SSH into Test VM'){
                 steps{
                     script{    
-                        sshagent(credentials : ['MyKey.pem']){
-                           sh "pwd"
-                           sh "cd .ssh"
-                           sh "ssh -i 'MyKey.pem' ubuntu@172.31.14.11 -o (yes/no/[fingerprint])=yes"
+                        sh '''
+                        ssh ubuntu@18.134.98.11
+                        '''
+                        
+                                          
                         }
                     }
                 }
