@@ -15,12 +15,12 @@ pipeline{
                     }
                 }
             }
-            stage('Clone Repo'){
-                steps{         
-                    sh "git clone https://github.com/Chinenye-VN/project_2.git"
-                    sh "cd project_2"       
-                }   
-            }
+           // stage('Clone Repo'){
+                //steps{         
+                   // sh "git clone https://github.com/Chinenye-VN/project_2.git"
+                    //sh "cd project_2"       
+                //}   
+            //}
            stage('Install Docker and Docker-compose'){
                steps{
                    sh '''
