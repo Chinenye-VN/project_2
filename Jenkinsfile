@@ -15,6 +15,11 @@ pipeline{
                     }
                 }
             }
+            stage('Clean up'){
+                steps{         
+                    sh "rm -rf ~/project_2"      
+                }   
+            }
             stage('Clone Repo'){
                 steps{         
                     sh "git clone https://github.com/Chinenye-VN/project_2.git"
