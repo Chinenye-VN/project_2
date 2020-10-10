@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: apanj/backend:latest
+        image: chinenye/backend:latest
         ports:
         - containerPort: 5001
