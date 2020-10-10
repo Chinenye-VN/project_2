@@ -1,4 +1,4 @@
-environment = "stagging"
+environment = "staging"
 region = "eu-west-1"
 access_key = "<your_access-key>"
 secret_key = "<your_secret-key>"
