@@ -4,27 +4,18 @@ services:
     container_name: frontend
     build: ./frontend
     image: chinenye/frontend
-    ports:
-    - target: 5000
-      published: 5000
     depends_on:
       - backend
   backend:
     container_name: backend
     build: ./backend
     image: chinenye/backend
-    ports:
-    - target: 5001
-      published: 5001
     depends_on:
       - mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com
   mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com:
     container_name: mysql-database
     build: ./database
     image: chinenye/database
-    ports:
-    - target: 3306
-      published: 3306
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - TEST_DATABASE_URI=${TEST_DATABASE_URI}
