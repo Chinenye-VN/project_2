@@ -6,7 +6,7 @@ services:
     image: chinenye/test
     ports:
     - target: 5000
-    published: 5000
+      published: 5000
     depends_on:
       - backend
   backend:
@@ -15,7 +15,7 @@ services:
     image: chinenye/backend
     ports:
     - target: 5001
-    published: 5001
+      published: 5001
     depends_on:
       - database
   database:
@@ -24,13 +24,12 @@ services:
     image: chinenye/database
     ports:
     - target: 3306
-    published: 3306
+      published: 3306
     environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - TEST_DATABASE_URI=${TEST_DATABASE_URI}
-      - DATABASE_URI=${DB_URI}
-      - SECRET_KEY=${SECRET_KEY}
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=testdb
+      - TEST_DATABASE_URI=mysql+pymysql://admin:admin123@mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com:3306/testdb
+      - SECRET_KEY=12345
+      - MYSQL_ROOT_PASSWORD=admin123
   nginx:
     image: nginx:latest
     ports:
@@ -39,8 +38,5 @@ services:
       protocol: tcp
     volumes:
     - type: bind
-      source: ./nginx/nginx.conf
+      source: ./Nginx/nginx.conf
       target: /etc/nginx/nginx.conf
-    depends_on:
-      - frontend
-  
