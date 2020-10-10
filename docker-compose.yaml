@@ -17,8 +17,8 @@ services:
     - target: 5001
       published: 5001
     depends_on:
-      - mysql
-  mysql:
+      - mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com
+  mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com:
     container_name: mysql-database
     build: ./database
     image: chinenye/database
