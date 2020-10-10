@@ -2,24 +2,25 @@ version: '3.7'
 services:
   frontend:
     container_name: frontend
-    build: ./frontend
     image: chinenye/frontend
+    build: ./frontend
     depends_on:
       - backend
   backend:
     container_name: backend
-    build: ./backend
     image: chinenye/backend
+    build: ./backend
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - DATABASE_URI=${DATABASE_URI}
+      - SECRET_KEY=${SECRET_KEY}
     depends_on:
-      - mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com
-  mydatabase.ckmf2bglurlt.eu-west-2.rds.amazonaws.com:
+      - mysql
+  mysql:
     container_name: mysql-database
     build: ./database
     image: chinenye/database
     environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - TEST_DATABASE_URI=${TEST_DATABASE_URI}
-      - SECRET_KEY=${SECRET_KEY}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
   nginx:
     image: nginx:latest
@@ -31,3 +32,5 @@ services:
     - type: bind
       source: ./Nginx/nginx.conf
       target: /etc/nginx/nginx.conf
+    depends_on:
+      - frontend
