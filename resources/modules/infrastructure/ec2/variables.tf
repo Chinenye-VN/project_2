@@ -20,7 +20,7 @@ variable "subnet_id" {
 
 variable "vpc_security_group_ids" {
   description = "The IDs of the security group we will attach to the EC2"
-  default     = ""
+  default     = ["sg-03d1e32d5a7d3f5ba"]
 }
 
 variable "tags" {
