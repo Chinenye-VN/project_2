@@ -15,12 +15,12 @@ variable "pem-key" {
 
 variable "subnet_id" {
   description = "The ID of the subnet which I will deploy EC2 in to"
-  default     = "4"
+  default     = "subnet-0fd2d39e6c907321d"
 }
 
 variable "vpc_security_group_ids" {
   description = "The IDs of the security group we will attach to the EC2"
-  default     = "2"
+  default     = ""
 }
 
 variable "tags" {
