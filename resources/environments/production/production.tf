@@ -9,7 +9,7 @@ variable "secret_key" {
 variable "ami_id" {
 }
 
-provider "aws" {
+provider "gcp" {
   region     = var.region
   version    = "~> 2.7"
   access_key = var.access_key
