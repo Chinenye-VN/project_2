@@ -1,3 +1,5 @@
 /venv/
 **/**/__pycache__/
 **/**/.coverage
+~/project_2/resources/modules/infrastructure/.terraform
+/.gitattributes
