@@ -1,9 +1,3 @@
-module "vpc" {
-  source = "./vpc"
-
-  environment = var.environment
-  region      = var.region
-}
 module "ec2" {
   source = "./ec2"
 
@@ -17,13 +11,4 @@ module "rds" {
   environment = var.environment
   region      = var.region
   vpc_id      = module.vpc.vpc_id
-}
-}
-module "securitygroups" {
-  source = "./securitygroups"
-
-  environment   = var.environment
-  region        = var.region
-  vpc_id        = module.vpc.vpc_id
-  ingress_ports = [22,80]
 }
