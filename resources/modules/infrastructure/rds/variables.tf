@@ -20,7 +20,7 @@ variable "username" {
 }
 variable "password" {
   description = "The password to access mysql"
-  default     = "mysql"
+  default     = "admin123"
 }
 variable "vpc_security_groups_ids" {
   description = "The IDs of the security group we will attach to the RDS"
