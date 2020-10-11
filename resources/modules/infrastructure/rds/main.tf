@@ -7,5 +7,5 @@ resource "aws_db_instance" "database" {
   name                    = var.name
   username                = var.username
   password                = var.password
-  vpc_security_group_ids = var.vpc_security_group_ids
+  vpc_security_group_ids  = var.vpc_security_group_ids
 }
