@@ -1,6 +1,3 @@
-variable "environment" {
-  value = "eu-west-2
-}
 variable "region" {
   value = "eu-west-2"
 }
