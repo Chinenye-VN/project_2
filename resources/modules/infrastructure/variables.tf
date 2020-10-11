@@ -1,6 +1,6 @@
 variable "region" {
-  value = "eu-west-2"
+  default = "eu-west-2"
 }
 variable "ami_id" {
-  value = "ami-09a1e275e350acf38"
+  default = "ami-09a1e275e350acf38"
 }
