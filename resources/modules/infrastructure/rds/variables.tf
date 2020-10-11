@@ -23,7 +23,7 @@ variable "password" {
   default     = "admin123"
 }
 variable "vpc_security_groups_ids" {
-  description = "The IDs of the security group we will attach to the RDS"
+  description = ["sg-03d1e32d5a7d3f5ba"]
 }
 
 
