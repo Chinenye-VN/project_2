@@ -23,12 +23,6 @@ variable "vpc_security_group_ids" {
   default     = "sg-03d1e32d5a7d3f5ba"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "Map of tags"
-  default     = { Name : "Jenkins", Project : "Project_2" }
-}
-
 variable "associate_public_ip_address" {
   description = "Associate Public IP to machines that need public access"
   default     = false
