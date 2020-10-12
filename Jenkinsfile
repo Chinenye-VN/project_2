@@ -1,13 +1,14 @@
 pipeline{
    environment {
-    registry = "chinenye/test"
-    registryCredential = "docker-hub-credentials"       
+    app_version = "v2"
+    rollback = "false"       
    }     
         agent any
         stages{
             stage('SSH into Test VM'){
                 steps{
-                    script{    
+                    script{ 
+                       load "/home/jenkin/.env/env_vars.groovy"
                         sh '''
                         ssh ubuntu@18.134.98.11
                         '''                 
