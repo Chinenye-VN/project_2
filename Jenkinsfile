@@ -44,7 +44,7 @@ EOF
                    sh '''
                    export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} <<EOF
                    export DATABASE_URI=${DATABASE_URI}
-                   export TEST_DATABASE_URI=${DATABASE_URI}
+                   export TEST_DATABASE_URI=${TEST_DATABASE_URI}
                    export SECRET_KEY=${SECRET_KEY}
                    docker-compose up -d
                    cd frontend/tests
@@ -60,7 +60,7 @@ EOF
                    sh '''
                    export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} <<EOF
                    export DATABASE_URI=${DATABASE_URI}
-                   export TEST_DATABASE_URI=${DATABASE_URI}
+                   export TEST_DATABASE_URI=${TEST_DATABASE_URI}
                    export SECRET_KEY=${SECRET_KEY}
                    docker-compose up -d
                    cd backend/tests
