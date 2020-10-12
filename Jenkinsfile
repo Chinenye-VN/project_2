@@ -39,27 +39,37 @@ EOF
                }
            }
                
-           stage('Building image') {
+           stage('Building image: Frontend') {
                steps{
-                   script{
-                     image = docker.build registry
-                   }
+                   sh '''
+                   export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} <<EOF
+                   export DATABASE_URI=${DATABASE_URI}
+                   export TEST_DATABASE_URI=${DATABASE_URI}
+                   export SECRET_KEY=${SECRET_KEY}
+                   docker-compose up -d
+                   cd frontend/tests
+                   docker-compose exec frontend pytest --cov application
+                   
+                   
+EOF
+                   '''
                }
            }
-           stage('Push Image'){
+           stage('Building image: Backend') {
                steps{
-                   script {
-                     docker.withRegistry(registryCredential) {
-                       image.push()
-                     }  
-                   }
+                   sh '''
+                   export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} <<EOF
+                   export DATABASE_URI=${DATABASE_URI}
+                   export TEST_DATABASE_URI=${DATABASE_URI}
+                   export SECRET_KEY=${SECRET_KEY}
+                   docker-compose up -d
+                   cd backend/tests
+                   docker-compose exec backend pytest --cov application
+                   
+                   
+EOF
+                   '''
                }
            }
-           stage('Deploy App'){
-               steps{
-                   sh "docker-compose pull && docker-compose up -d"
-               }
-           }
-     }
-}
+           
 
