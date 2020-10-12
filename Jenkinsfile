@@ -10,7 +10,7 @@ pipeline{
                     script{
                         sh '''
                         ssh ubuntu@18.134.98.11
-                        load "/var/.env/env_vars.groovy"
+                        #load "/var/.env/env_vars.groovy"
                         '''                 
                     }
                 }
