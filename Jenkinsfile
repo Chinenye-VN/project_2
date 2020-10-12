@@ -8,7 +8,7 @@ pipeline{
             stage('SSH into Test VM'){
                 steps{
                     script{ 
-                       load "/home/jenkin/.env/env_vars.groovy"
+                       load "~/home/jenkin/.env/env_vars.groovy"
                         sh '''
                         ssh ubuntu@18.134.98.11
                         '''                 
