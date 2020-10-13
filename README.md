@@ -2,8 +2,6 @@
 
 This application is a simple [Flask application](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application), ready to be deployed, for your SFIA2 project.
 
-The following information should be everything you need to complete the project.
-
 ## Brief
 
 The application must:
@@ -27,19 +25,6 @@ The application works by:
 
 ### Database Connection
 
-The database connection is handled in the `./backend/application/__init__.py` file.
-
-A typical Database URI follows the form:
-
-```
-mysql+pymysql://[db-user]:[db-password]@[db-host]/[db-name]
-```
-
-An example of this would be:
-
-```
-mysql+pymysql://root:password@mysql:3306/orders
-```
 
 ### Environment Variables
 
@@ -50,56 +35,18 @@ The application makes use of **2 environment variables**:
 
 ### Running a Flask Application
 
-Typically, to run a Flask application, you would:
 
-1. Install the pip dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-2. Run the application:
-
-```
-python3 app.py
-```
 
 ![app-diagram](https://i.imgur.com/wnbDazy.png)
 
 ## Testing
 
-Unit Tests have been included for both the frontend and backend services.
+# *Frontend and Backend Testing*
+![frontend and backend]
 
-To test the backend service, you will need two things:
-
-1. A database called `testdb`
-2. A `TEST_DATABASE_URI` environment variable, which contains the database connection for the `testdb` database.
-
-You can run the tests using the command:
-
-```
-pytest
-```
-
-To generate a coverage report, you will need to run:
-
-```
-pytest --cov application
-```
 
 ## Infrastructure
 
 The **Minimum Viable Product** for this project should at least demonstrate the following infrastructure diagram:
 
 ![mvp-diagram](https://i.imgur.com/i5qfOas.png)
-
-**Stretch goals** for this project include:
-
-- Using **Terraform to configure the Kubernetes Cluster** for production 
-- Using **Terraform and Ansible to configure the Test VM**
-
-Completing the stretch goals should yield an infrastructure diagram similar to the following:
-
-![stretch-digram](https://i.imgur.com/Q5zljVl.png)
-
-**Good luck!**
