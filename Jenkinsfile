@@ -70,7 +70,7 @@ EOF
                    '''
                }
            }
-           tage('SSH into Production VM'){
+           stage('SSH into Production VM'){
                 steps{
                     script{
                         sh '''
@@ -92,5 +92,6 @@ EOF
                         '''                 
                     }
                 }
-            }
+          }
+   }
 }
