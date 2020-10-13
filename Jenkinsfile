@@ -64,6 +64,7 @@ EOF
                    docker-compose up -d
                    cd backend/tests
                    docker-compose exec backend pytest --cov application
+                   exit 
                    
                    
 EOF
