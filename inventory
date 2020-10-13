@@ -1,0 +1,7 @@
+[test]
+ec2-52-56-182-24.eu-west-2.compute.amazonaws.com
+
+[test:vars]
+ansible_user=ubuntu
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/MyKey.pem
