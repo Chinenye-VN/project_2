@@ -10,7 +10,6 @@ pipeline{
                     script{
                         sh '''
                         ssh ubuntu@18.134.98.11
-                        #load "/var/.env/env_vars.groovy"
                         '''                 
                     }
                 }
@@ -71,5 +70,27 @@ EOF
                    '''
                }
            }
-       }
+           tage('SSH into Production VM'){
+                steps{
+                    script{
+                        sh '''
+                        ssh ubuntu@18.134.130.236 <<EOF
+                        rm -rf project_2
+                        git clone https://github.com/Chinenye-VN/project_2.git
+                        cd project_2
+                         curl https://get.docker.com | sudo bash 
+                         sudo usermod aG docker jenkins
+                         sudo apt update
+                         sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                         sudo chmod +x /usr/local/bin/docker-compose
+                         export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} <<EOF
+                         export DATABASE_URI=${DATABASE_URI}
+                         export TEST_DATABASE_URI=${TEST_DATABASE_URI}
+                         export SECRET_KEY=${SECRET_KEY}
+                         docker-compose up -d
+EOF
+                        '''                 
+                    }
+                }
+            }
 }
