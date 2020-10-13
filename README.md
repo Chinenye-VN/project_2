@@ -10,40 +10,17 @@ The application must:
 - Be deployed in a **managed Kubernetes Cluster for production**
 - Make use of a **managed Database solution**
 
-## Application
-
-The application is a Flask application running in **2 micro-services** (*frontend* and *backend*).  
-
-The database directory is available should you: 
-  - want to use a MySQL container for your database at any point, *or*
-  - want to make use of the `Create.sql` file to **set up and pre-populate your database**.
-
-The application works by:
-1. The frontend service making a GET request to the backend service. 
-2. The backend service using a database connection to query the database and return a result.
-3. The frontend service serving up a simple HTML (`index.html`) to display the result.
-
-### Database Connection
-
-
-### Environment Variables
-
-The application makes use of **2 environment variables**:
-
-- `DATABASE_URI`: as described above
-- `SECRET_KEY`: any *random string* will work here
 
 ### Running a Flask Application
-
-
 
 ![app-diagram](https://i.imgur.com/wnbDazy.png)
 
 ## Testing
 
-# *Frontend and Backend Testing*
-![frontend and backend]
+*Frontend and Backend Testing*
 
+![frontend](https://user-images.githubusercontent.com/67292767/95806474-a63ad780-0cff-11eb-9bbc-99e037ca553a.png)
+![backend](https://user-images.githubusercontent.com/67292767/95806467-a20eba00-0cff-11eb-9d7a-c0a423fab09f.png)
 
 ## Infrastructure
 
