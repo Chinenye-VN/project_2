@@ -2,6 +2,9 @@
 
 This application is a simple [Flask application](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application), ready to be deployed, for your SFIA2 project.
 
+##### jira
+https://cvn1.atlassian.net/secure/RapidBoard.jspa?rapidView=2&projectKey=PD&view=planning.nodetail&selectedIssue=PD-19&issueLimit=100&atlOrigin=eyJpIjoiNzA5ZTVmOGRkN2M4NDcyZWI2OGRmNWVkNjczOGEwM2YiLCJwIjoiaiJ9
+
 ## Brief
 
 The application must:
